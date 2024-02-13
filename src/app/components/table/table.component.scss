@@ -1,0 +1,48 @@
+.data-table-container {
+  margin: 20px;
+
+  input[type="text"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: calc(100% - 22px);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      tr {
+        th {
+          text-align: left;
+          padding: 10px;
+          background-color: #f0f0f0;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #e0e0e0;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #e0e0e0;
+
+        &:hover {
+          background-color: #f9f9f9;
+        }
+
+        td {
+          padding: 10px;
+
+          img {
+            width: 32px;
+            height: 32px;
+          }
+        }
+      }
+    }
+  }
+}

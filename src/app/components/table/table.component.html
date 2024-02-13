@@ -1,0 +1,38 @@
+<app-hide [ListItems]="columns"></app-hide>
+<div class="data-table-container">
+  <input type="text" placeholder="Search" [(ngModel)]="searchQuery" (input)="filterData()">
+  <table>
+    <thead>
+    <tr>
+      <th *ngFor="let column of columns" (click)="sortData(column.name)" [hidden]="!column.isVisible">
+        {{column.name}}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of filteredData">
+      <ng-container *ngFor="let column of columns">
+        <td *ngIf="column.isVisible && column.name === 'picture'">
+          <img alt="picture" [src]="item[column.name]" />
+        </td>
+        <td *ngIf="column.isVisible && column.name !== 'picture'">
+          <ng-container *ngIf="column.name === 'name'">
+            {{ item.name?.first }} {{ item.name?.last }}
+          </ng-container>
+          <ng-container *ngIf="column.name !== 'name'">
+            {{ item[column.name] }}
+          </ng-container>
+        </td>
+      </ng-container>
+    </tr>
+
+    </tbody>
+  </table>
+
+  <app-pagination [totalItems]="people.length"
+                  [itemsPerPage]="pageSize"
+                  [currentPage]="currentPage"
+                  (pageChange)="pageChanged($event)">
+  </app-pagination>
+
+</div>

@@ -1,0 +1,10 @@
+<div style="display: flex; flex-direction: column" >
+  <div class="pagination_number">
+    <span>{{currentPage}} of {{totalPages}}</span>
+  </div>
+  <div class="pagination">
+    <button (click)="onPrevious()" [disabled]="currentPage === 1">Previous</button>
+    <button *ngFor="let page of pages" (click)="onPageChange(page)" [class.active]="currentPage === page">{{ page }}</button>
+    <button (click)="onNext()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>

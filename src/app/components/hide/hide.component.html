@@ -1,0 +1,6 @@
+<button (click)="toggleHide()">Hide/Show</button>
+<ul *ngIf="this.hide">
+  <li *ngFor="let item of ListItems" (click)="toggleItemVisibility(item)" >
+    {{ item.name }}
+  </li>
+</ul>
